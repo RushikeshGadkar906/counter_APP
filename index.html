@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="py-3">Counter App - using query selector</h2>
+        <div class="d-flex">
+            <button class="btn btn-success countMins" style="width: 50px;">-</button>
+            <h1 class="px-5 count">0</h1>
+            <button class="btn btn-success countPlus" style="width: 50px;">+</button>
+        </div>
+        <hr>
+
+
+        <h2 class="py-3" id="">Counter App - using function</h2>
+        <div class="d-flex heading">
+            <button class="btn btn-success" onclick="subCount()" style="width: 50px;">-</button>
+            <h1 class="px-5" id="count_2">0</h1>
+            <button class="btn btn-success" onclick="addCount()" style="width: 50px;">+</button>
+        </div>
+
+    </div>
+    <script>
+        let result = document.querySelector(".count");
+        let plusBtn = document.querySelector(".countPlus");
+        let minsBtn = document.querySelector(".countMins");
+        let count = 0;
+        updateResult();
+        plusBtn.addEventListener("click", () => {
+            count++;
+            updateResult();
+        });
+        minsBtn.addEventListener("click", () => {
+            if (count != "0") {
+                count--;
+                updateResult();
+            } else {
+                alert("Only +ve Num")
+            }
+
+        });
+
+        function updateResult() {
+            result.innerHTML = count;
+        }
+        // Qty Btn ---------------------------------
+
+        count_2 = document.getElementById("count_2");
+        myCount = 0;
+        printResult();
+
+        function addCount() {
+            myCount++;
+            printResult();
+        }
+
+        function subCount() {
+            if (myCount != 0) {
+                myCount--;
+                printResult();
+            } else {
+                alert("Only +ve Num")
+            }
+        }
+
+        function printResult() {
+            count_2.innerHTML = myCount;
+        }
+        // ---------------------
+
+        head = document.querySelector(".heading");
+        head.addEventListener("mouseover", () => {
+            a = head.querySelector(".count");
+        })
+
+        function aa(a) {
+
+            console.log("outside" + head);
+
+        }
+        head.addEventListener("mouseout", () => {
+                console.log("out");
+            })
+            // End Qty Btn ------------------
+    </script>
+</body>
+
+
+</html>
